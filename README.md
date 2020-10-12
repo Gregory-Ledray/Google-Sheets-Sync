@@ -2,10 +2,22 @@
 Synchronize changes between different Sheets in Google Sheets.
 
 # What is this good for?
-This is a demonstration of how to synchronize changes between different Google Sheets using Python and Google Sheet's APIs.
+This is a demonstration of how to synchronize changes between different Google Sheets using Google Apps Script.
+
+# Why Google Apps Script?
+It is dead-simple for people to run Google Apps Scripts. Let's look at some advantages over Python:
+1. Where desktop scripts like Python would require authentication or credential storage to improve security, Google Apps Scripts are running in a secure environment already. This eliminates at least one setup step (managing credentials) and eliminates one thing which can go wrong.
+
+Now let's look at some advantages over a compiled language which runs on a server:
+1. No need to acquire credentials and store them on the server because Google Apps Script already runs in a trusted environment.
 
 # How do I use this?
-1. [Go here](https://developers.google.com/sheets/api/quickstart/python) and under, "Step 1: Turn on the Google Sheets API", click the, "Enable the Google Sheets API" button. Follow any other instructions under this step, including saving credentials.json file to your personal computer.
-2. Download this repo to your personal computer. `git clone https://github.com/Gregory-Ledray/Google-Sheets-Sync.git`
-3. In step 1 you downloaded a file called, "credentials.json". Cut or Copy this file into the Google-Sheets-Sync directory which was created when you ran `git clone` in step 2.
-4. Run the program by double-clicking on the shortcut in this directory.
+1. Go here: https://script.google.com/create
+2. Replace the contents of that script with the the the contents of the file in this repository titled 'main.gs'.
+3. Save the script.
+4. [Enable the Google Sheets API advanced service](https://developers.google.com/apps-script/guides/services/advanced#enabling_advanced_services) in your script. Make sure you enable access to Google Sheets.
+5. In the Apps Script editor click Run > Run Function > Test \_\_\_\_. This will run the program. You will have to authorize it to run the first time.
+6. To see any output the script produces, click View > Logs. In most of the test cases you can also verify that the function works by opening up the Sheet and checking if the data has copied into the destination.
+
+# How does logging work?
+Google Apps Script has a dashboard: https://script.google.com/home/
