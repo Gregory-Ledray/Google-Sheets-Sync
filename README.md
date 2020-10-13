@@ -5,11 +5,10 @@ Synchronize changes between different Sheets in Google Sheets.
 This is a demonstration of how to synchronize changes between different Google Sheets using Google Apps Script.
 
 # Why Google Apps Script?
-It is dead-simple for people to run Google Apps Scripts. Let's look at some advantages over Python:
 1. Where desktop scripts like Python would require authentication or credential storage to improve security, Google Apps Scripts are running in a secure environment already. This eliminates at least one setup step (managing credentials) and eliminates one thing which can go wrong.
-
-Now let's look at some advantages over a compiled language which runs on a server:
-1. No need to acquire credentials and store them on the server because Google Apps Script already runs in a trusted environment.
+2. It's free to deploy and run the scripts with a Google account.
+3. It's fast and easy to deploy new versions - just save the file and you're done. If the service runs on a server, you have to manage the server and the service.
+4. It's easy to set up ways to trigger the service - just use Google's Triggers from the Google Apps Script console: https://script.google.com
 
 # How do I Test / Use this?
 To test, create a script bound to the source spreadsheet, paste in this source, adjust variables, set up a trigger to run the script, and then trigger the trigger by editing the source file. Step by step instructions are below.
