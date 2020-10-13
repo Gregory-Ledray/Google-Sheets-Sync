@@ -22,7 +22,10 @@ To test, create a script bound to the source spreadsheet, paste in this source, 
 7. Click "Add Trigger".
 8. Set up the trigger to trigger the "onEdit" function when a user edits the spreadsheet. Therefore, run the "onEdit" function. On deployment "Head". From event source "From spreadsheet". On Event Type "On edit". And Failure Notification Settings "immediately". You may be asked to authorize this script after it has been set up.
 
-Everything should now work. Go to the source spreadsheet and type in the range which is specified for copying over to the destination. If you haven't adjusted any other parameters then the source range is every row and every column. The destinationRange should start at A5.
+It should now work. Go to the source spreadsheet and type in the range which is specified for copying over to the destination. If you haven't adjusted any other parameters then the source range is every row and every column (configure with var copyFromRangeA1Notation). The destinationRange should start at A5 (configure with destinationRangeA1Notation).
+
+# Limitations
+* Copy and paste works. Copying, pressing the delete key, and then pasting works. But if you Cut and Paste, the source line is not deleted in the destination script. This *seems* to be a limitation of Google Sheet's onEdit event, but I haven't done much investigating.
 
 # How does logging work?
 Google Apps Script has a dashboard: https://script.google.com/home/
