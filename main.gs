@@ -1,4 +1,3 @@
-// could also set this up as 'sourceRange' like 'destinationRangeA1Notation' is set up.
 var copyFromRangeA1Notation = 'A1';
 
 var destinationSpreadsheetId = '18Xg1GM_CnGJeilHWnXwh0EQPo4vbyTHQ3V_Ju5EJ_MI';
