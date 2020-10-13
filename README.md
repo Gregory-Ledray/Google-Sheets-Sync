@@ -12,12 +12,17 @@ Now let's look at some advantages over a compiled language which runs on a serve
 1. No need to acquire credentials and store them on the server because Google Apps Script already runs in a trusted environment.
 
 # How do I Test this?
-1. Go here: https://script.google.com/create
-2. Replace the contents of that script with the the the contents of the file in this repository titled 'main.gs'.
-3. Save the script.
-4. [Enable the Google Sheets API advanced service](https://developers.google.com/apps-script/guides/services/advanced#enabling_advanced_services) in your script. Make sure you enable access to Google Sheets.
-5. In the Apps Script editor click Run > Run Function > Test \_\_\_\_. This will run the program. You will have to authorize it to run the first time.
-6. To see any output the script produces, click View > Logs. In most of the test cases you can also verify that the function works by opening up the Sheet and checking if the data has copied into the destination.
+To test, create a script bound to the source spreadsheet, paste in this source, adjust variables, set up a trigger to run the script, and then trigger the trigger by editing the source file. Step by step instructions are below.
+1. Create 2 new spreadsheets. In the first spreadsheet (the source spreadsheet), type out information in a couple of cells.
+2. In the first spreadsheet (the source spreadsheet), click Tools > Script Editor. This will open a new script.
+3. Paste in the code from this repository's .gs file. Save it with Ctrl + S.
+4. In the pasted file there is a line that starts with "var destinationSpreadsheetId". Delete the long string of numbers and letters between '' on that line. In its place, paste in the ID of the second spreadsheet. How do you get the ID of the second spreadsheet? Open the spreadsheet and copy the part of the URL between "/d/" and "/edit". Then paste it into the script.
+5. Save the script.
+6. In the script, Go to Edit > Current project's triggers.
+7. Click "Add Trigger".
+8. Set up the trigger to trigger the "onEdit" function when a user edits the spreadsheet. Therefore, run the "onEdit" function. On deployment "Head". From event source "From spreadsheet". On Event Type "On edit". And Failure Notification Settings "immediately". You may be asked to authorize this script after it has been set up.
+
+Everything should now work. Go to the source spreadsheet and type in the range which is specified for copying over to the destination. If you haven't adjusted any other parameters then the source range is every row and every column. The destinationRange should start at A5.
 
 # How do I use this in real life?
 The goal is usually to synchronize cells or rows in different Google Sheets automatically when a "source" sheet is modified. To do that, you need to set up a function which does the work you want when you Run the function manually. Then you can create a Trigger which runs that function automatically when something else happens. The best way to set up a Trigger is via an [Installable Trigger](https://developers.google.com/apps-script/guides/triggers/installable). To learn more about adding such a tirgger, look at Google's [Managing triggers manually documentation](https://developers.google.com/apps-script/guides/triggers/installable#managing_triggers_manually).
